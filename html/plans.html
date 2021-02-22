@@ -1,0 +1,2565 @@
+
+<!doctype html>
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=X-UA-Compatible content="IE=edge"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"XQMBVVVWGwICXVNQAwYP",licenseKey:"b20fb8f0df",applicationID:"12922478"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var i=e[n]={exports:{}};t[n][0].call(i.exports,function(e){var i=t[n][1][e];return r(i||e)},i,i.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(t,e,n){function r(t){try{c.console&&console.log(t)}catch(e){}}var i,o=t("ee"),a=t(23),c={};try{i=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(c.console=!0,i.indexOf("dev")!==-1&&(c.dev=!0),i.indexOf("nr_dev")!==-1&&(c.nrDev=!0))}catch(s){}c.nrDev&&o.on("internal-error",function(t){r(t.stack)}),c.dev&&o.on("fn-err",function(t,e,n){r(n.stack)}),c.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(c,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,c){try{p?p-=1:i(c||new UncaughtException(t,e,n),!0)}catch(f){try{o("ierr",[f,s.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function i(t,e){var n=e?null:s.now();o("err",[t,n])}var o=t("handle"),a=t(24),c=t("ee"),s=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;s.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(9),t(8),"addEventListener"in window&&t(5),s.xhrWrappable&&t(10),d=!0)}c.on("fn-start",function(t,e,n){d&&(p+=1)}),c.on("fn-err",function(t,e,n){d&&!n[l]&&(f(n,l,function(){return!0}),this.thrown=!0,i(n))}),c.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),c.on("internal-error",function(t){o("ierr",[t,s.now(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var i=t("ee"),o=t("handle"),a=t(9),c=t(8),s="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",g="pushState",y=t("loader");y.features.stn=!0,t(7),"addEventListener"in window&&t(5);var x=NREUM.o.EV;i.on(m,function(t,e){var n=t[0];n instanceof x&&(this.bstStart=y.now())}),i.on(w,function(t,e){var n=t[0];n instanceof x&&o("bst",[n,e,this.bstStart,y.now()])}),a.on(m,function(t,e,n){this.bstStart=y.now(),this.bstType=n}),a.on(w,function(t,e){o(v,[e,this.bstStart,y.now(),this.bstType])}),c.on(m,function(){this.bstStart=y.now()}),c.on(w,function(t,e){o(v,[e,this.bstStart,y.now(),"requestAnimationFrame"])}),i.on(g+p,function(t){this.time=y.now(),this.startPath=location.pathname+location.hash}),i.on(g+h,function(t){o("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+s]?window.performance[f](u,function(t){o(d,[window.performance.getEntriesByType(l)]),window.performance["c"+s]()},!1):window.performance[f]("webkit"+u,function(t){o(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+s]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&i(e)}function i(t){c.inPlace(t,[u,d],"-",o)}function o(t,e){return t[1]}var a=t("ee").get("events"),c=t("wrap-function")(a,!0),s=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(i(window),i(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1],r=s(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?c(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,e,n){function r(t,e,n){var r=t[e];"function"==typeof r&&(t[e]=function(){var t=o(arguments),e={};i.emit(n+"before-start",[t],e);var a;e[m]&&e[m].dt&&(a=e[m].dt);var c=r.apply(this,t);return i.emit(n+"start",[t,a],c),c.then(function(t){return i.emit(n+"end",[null,t],c),t},function(t){throw i.emit(n+"end",[t],c),t})})}var i=t("ee").get("fetch"),o=t(24),a=t(23);e.exports=i;var c=window,s="fetch-",f=s+"body-",u=["arrayBuffer","blob","json","text","formData"],d=c.Request,l=c.Response,p=c.fetch,h="prototype",m="nr@context";d&&l&&p&&(a(u,function(t,e){r(d[h],e,f),r(l[h],e,f)}),r(c,"fetch",s),i.on(s+"end",function(t,e){var n=this;if(e){var r=e.headers.get("content-length");null!==r&&(n.rxSize=r),i.emit(s+"done",[null,e],n)}else i.emit(s+"done",[t],n)}))},{}],7:[function(t,e,n){var r=t("ee").get("history"),i=t("wrap-function")(r);e.exports=r;var o=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;o&&o.pushState&&o.replaceState&&(a=o),i.inPlace(a,["pushState","replaceState"],"-")},{}],8:[function(t,e,n){var r=t("ee").get("raf"),i=t("wrap-function")(r),o="equestAnimationFrame";e.exports=r,i.inPlace(window,["r"+o,"mozR"+o,"webkitR"+o,"msR"+o],"raf-"),r.on("raf-start",function(t){t[0]=i(t[0],"fn-")})},{}],9:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function i(t,e,n){this.method=n,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,n)}var o=t("ee").get("timer"),a=t("wrap-function")(o),c="setTimeout",s="setInterval",f="clearTimeout",u="-start",d="-";e.exports=o,a.inPlace(window,[c,"setImmediate"],c+d),a.inPlace(window,[s],s+d),a.inPlace(window,[f,"clearImmediate"],f+d),o.on(s+u,r),o.on(c+u,i)},{}],10:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",c)}function i(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,g,"fn-",c)}function o(t){y.push(t),h&&(b?b.then(a):w?w(a):(E=-E,R.data=E))}function a(){for(var t=0;t<y.length;t++)r([],y[t]);y.length&&(y=[])}function c(t,e){return e}function s(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t("wrap-function")(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",g=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],y=[];e.exports=u;var x=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(v,i,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(s(p,x),x.prototype=p.prototype,d.inPlace(x.prototype,["open","send"],"-xhr-",c),u.on("send-xhr-start",function(t,e){r(t,e),o(e)}),u.on("open-xhr-start",r),h){var b=m&&m.resolve();if(!w&&!m){var E=1,R=document.createTextNode(E);new h(a).observe(R,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],11:[function(t,e,n){function r(t){if(!c(t))return null;var e=window.NREUM;if(!e.loader_config)return null;var n=(e.loader_config.accountID||"").toString()||null,r=(e.loader_config.agentID||"").toString()||null,f=(e.loader_config.trustKey||"").toString()||null;if(!n||!r)return null;var h=p.generateSpanId(),m=p.generateTraceId(),w=Date.now(),v={spanId:h,traceId:m,timestamp:w};return(t.sameOrigin||s(t)&&l())&&(v.traceContextParentHeader=i(h,m),v.traceContextStateHeader=o(h,w,n,r,f)),(t.sameOrigin&&!u()||!t.sameOrigin&&s(t)&&d())&&(v.newrelicHeader=a(h,m,w,n,r,f)),v}function i(t,e){return"00-"+e+"-"+t+"-01"}function o(t,e,n,r,i){var o=0,a="",c=1,s="",f="";return i+"@nr="+o+"-"+c+"-"+n+"-"+r+"-"+t+"-"+a+"-"+s+"-"+f+"-"+e}function a(t,e,n,r,i,o){var a="btoa"in window&&"function"==typeof window.btoa;if(!a)return null;var c={v:[0,1],d:{ty:"Browser",ac:r,ap:i,id:t,tr:e,ti:n}};return o&&r!==o&&(c.d.tk=o),btoa(JSON.stringify(c))}function c(t){return f()&&s(t)}function s(t){var e=!1,n={};if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(n=NREUM.init.distributed_tracing),t.sameOrigin)e=!0;else if(n.allowed_origins instanceof Array)for(var r=0;r<n.allowed_origins.length;r++){var i=h(n.allowed_origins[r]);if(t.hostname===i.hostname&&t.protocol===i.protocol&&t.port===i.port){e=!0;break}}return e}function f(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.enabled}function u(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.exclude_newrelic_header}function d(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&NREUM.init.distributed_tracing.cors_use_newrelic_header!==!1}function l(){return"init"in NREUM&&"distributed_tracing"in NREUM.init&&!!NREUM.init.distributed_tracing.cors_use_tracecontext_headers}var p=t(20),h=t(13);e.exports={generateTracePayload:r,shouldGenerateTrace:c}},{}],12:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<l;r++)t.removeEventListener(d[r],this.listener,!1);e.aborted||(n.duration=a.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==e.status&&(e.status=0):o(this,t),n.cbTime=this.cbTime,u.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime]))}}function i(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.parsedOrigin=s(e),t.sameOrigin=t.parsedOrigin.sameOrigin}function o(t,e){t.params.status=e.status;var n=w(e,t.lastSize);if(n&&(t.metrics.rxSize=n),t.sameOrigin){var r=e.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var a=t("loader");if(a.xhrWrappable){var c=t("handle"),s=t(13),f=t(11).generateTracePayload,u=t("ee"),d=["load","error","abort","timeout"],l=d.length,p=t("id"),h=t(17),m=t(16),w=t(14),v=window.XMLHttpRequest;a.features.xhr=!0,t(10),t(6),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,e.loadCaptureCalled=!1,t.addEventListener("load",function(n){o(e,t)},!1),h&&(h>34||h<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),u.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var n=f(this.parsedOrigin);if(n){var r=!1;n.newrelicHeader&&(e.setRequestHeader("newrelic",n.newrelicHeader),r=!0),n.traceContextParentHeader&&(e.setRequestHeader("traceparent",n.traceContextParentHeader),n.traceContextStateHeader&&e.setRequestHeader("tracestate",n.traceContextStateHeader),r=!0),r&&(this.dt=n)}}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],i=this;if(n&&r){var o=m(r);o&&(n.txSize=o)}this.startTime=a.now(),this.listener=function(t){try{"abort"!==t.type||i.loadCaptureCalled||(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof e.onload))&&i.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var c=0;c<l;c++)e.addEventListener(d[c],this.listener,!1)}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("addEventListener-end",function(t,e){e instanceof v&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof v&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof v&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,e],e)}),u.on("fetch-before-start",function(t){function e(t,e){var n=!1;return e.newrelicHeader&&(t.set("newrelic",e.newrelicHeader),n=!0),e.traceContextParentHeader&&(t.set("traceparent",e.traceContextParentHeader),e.traceContextStateHeader&&t.set("tracestate",e.traceContextStateHeader),n=!0),n}var n,r=t[1]||{};"string"==typeof t[0]?n=t[0]:t[0]&&t[0].url?n=t[0].url:window.URL&&t[0]&&t[0]instanceof URL&&(n=t[0].href),n&&(this.parsedOrigin=s(n),this.sameOrigin=this.parsedOrigin.sameOrigin);var i=f(this.parsedOrigin);if(i&&(i.newrelicHeader||i.traceContextParentHeader))if("string"==typeof t[0]||window.URL&&t[0]&&t[0]instanceof URL){var o={};for(var a in r)o[a]=r[a];o.headers=new Headers(r.headers||{}),e(o.headers,i)&&(this.dt=i),t.length>1?t[1]=o:t.push(o)}else t[0]&&t[0].headers&&e(t[0].headers,i)&&(this.dt=i)})}},{}],13:[function(t,e,n){var r={};e.exports=function(t){if(t in r)return r[t];var e=document.createElement("a"),n=window.location,i={};e.href=t,i.port=e.port;var o=e.href.split("://");!i.port&&o[1]&&(i.port=o[1].split("/")[0].split("@").pop().split(":")[1]),i.port&&"0"!==i.port||(i.port="https"===o[0]?"443":"80"),i.hostname=e.hostname||n.hostname,i.pathname=e.pathname,i.protocol=o[0],"/"!==i.pathname.charAt(0)&&(i.pathname="/"+i.pathname);var a=!e.protocol||":"===e.protocol||e.protocol===n.protocol,c=e.hostname===document.domain&&e.port===n.port;return i.sameOrigin=a&&(!e.hostname||c),"/"===i.pathname&&(r[t]=i),i}},{}],14:[function(t,e,n){function r(t,e){var n=t.responseType;return"json"===n&&null!==e?e:"arraybuffer"===n||"blob"===n||"json"===n?i(t.response):"text"===n||""===n||void 0===n?i(t.responseText):void 0}var i=t(16);e.exports=r},{}],15:[function(t,e,n){function r(){}function i(t,e,n){return function(){return o(t,[f.now()].concat(c(arguments)),e?null:this,n),e?void 0:this}}var o=t("handle"),a=t(23),c=t(24),s=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,e){u[e]=i(l+e,!0,"api")}),u.addPageAction=i(l+"addPageAction",!0),u.setCurrentRouteName=i(l+"routeName",!0),e.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,e){var n={},r=this,i="function"==typeof e;return o(p+"tracer",[f.now(),t,n],r),function(){if(s.emit((i?"":"no-")+"fn-start",[f.now(),r,i],n),i)try{return e.apply(this,arguments)}catch(t){throw s.emit("fn-err",[arguments,this,t],n),t}finally{s.emit("fn-end",[f.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){h[e]=i(p+e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),o("err",[t,f.now(),!1,e])}},{}],16:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],17:[function(t,e,n){var r=0,i=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);i&&(r=+i[1]),e.exports=r},{}],18:[function(t,e,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=t(25);e.exports=r,e.exports.offset=a,e.exports.getLastTimestamp=i},{}],19:[function(t,e,n){function r(t,e){var n=t.getEntries();n.forEach(function(t){"first-paint"===t.name?d("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&d("timing",["fcp",Math.floor(t.startTime)])})}function i(t,e){var n=t.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(t){t.getEntries().forEach(function(t){t.hadRecentInput||d("cls",[t])})}function a(t){if(t instanceof h&&!w){var e=Math.round(t.timeStamp),n={type:t.type};e<=l.now()?n.fid=l.now()-e:e>l.offset&&e<=Date.now()?(e-=l.offset,n.fid=l.now()-e):e=l.now(),w=!0,d("timing",["fi",e,n])}}function c(t){d("pageHide",[l.now(),t])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var s,f,u,d=t("handle"),l=t("loader"),p=t(22),h=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){s=new PerformanceObserver(r);try{s.observe({entryTypes:["paint"]})}catch(m){}f=new PerformanceObserver(i);try{f.observe({entryTypes:["largest-contentful-paint"]})}catch(m){}u=new PerformanceObserver(o);try{u.observe({type:"layout-shift",buffered:!0})}catch(m){}}if("addEventListener"in document){var w=!1,v=["click","keydown","mousedown","pointerdown","touchstart"];v.forEach(function(t){document.addEventListener(t,a,!1)})}p(c)}},{}],20:[function(t,e,n){function r(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(e=r.getRandomValues(new Uint8Array(31)));for(var i,o="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",c=0;c<o.length;c++)i=o[c],"x"===i?a+=t().toString(16):"y"===i?(i=3&t()|8,a+=i.toString(16)):a+=i;return a}function i(){return a(16)}function o(){return a(32)}function a(t){function e(){return n?15&n[r++]:16*Math.random()|0}var n=null,r=0,i=window.crypto||window.msCrypto;i&&i.getRandomValues&&Uint8Array&&(n=i.getRandomValues(new Uint8Array(31)));for(var o=[],a=0;a<t;a++)o.push(e().toString(16));return o.join("")}e.exports={generateUuid:r,generateSpanId:i,generateTraceId:o}},{}],21:[function(t,e,n){function r(t,e){if(!i)return!1;if(t!==i)return!1;if(!e)return!0;if(!o)return!1;for(var n=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,s=c.match(a);s&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=s[1])}e.exports={agent:i,version:o,match:r}},{}],22:[function(t,e,n){function r(t){function e(){t(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,e,!1)}e.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],23:[function(t,e,n){function r(t,e){var n=[],r="",o=0;for(r in t)i.call(t,r)&&(n[o]=e(r,t[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],24:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,i=n-e||0,o=Array(i<0?0:i);++r<i;)o[r]=t[e+r];return o}e.exports=r},{}],25:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,e,n){function r(){}function i(t){function e(t){return t&&t instanceof r?t:t?f(t,s,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!p.aborted||o){t&&a&&t(n,r,i);for(var c=e(i),s=m(n),f=s.length,u=0;u<f;u++)s[u].apply(c,r);var l=d[y[n]];return l&&l.push([x,n,r,c]),c}}function o(t,e){g[t]=m(t).concat(e)}function h(t,e){var n=g[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return g[t]||[]}function w(t){return l[t]=l[t]||i(n)}function v(t,e){u(t,function(t,n){e=e||"feature",y[n]=e,e in d||(d[e]=[])})}var g={},y={},x={on:o,addEventListener:o,removeEventListener:h,emit:n,get:w,listeners:m,context:e,buffer:v,abort:c,aborted:!1};return x}function o(t){return f(t,s,a)}function a(){return new r}function c(){(d.api||d.feature)&&(p.aborted=!0,d=p.backlog={})}var s="nr@context",f=t("gos"),u=t(23),d={},l={},p=e.exports=i();e.exports.getOrSetContext=o,p.backlog=d},{}],gos:[function(t,e,n){function r(t,e,n){if(i.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return t[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){i.buffer([t],r),i.emit(t,e,n)}var i=t("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,o,function(){return i++})}var i=1,o="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!b++){var t=x.info=NREUM.info,e=l.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return f.abort();s(g,function(e,n){t[e]||(t[e]=n)});var n=a();c("mark",["onload",n+x.offset],null,"api"),c("timing",["load",n]);var r=l.createElement("script");r.src="https://"+t.agent,e.parentNode.insertBefore(r,e)}}function i(){"complete"===l.readyState&&o()}function o(){c("mark",["domContent",a()+x.offset],null,"api")}var a=t(18),c=t("handle"),s=t(23),f=t("ee"),u=t(21),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,g={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1198.min.js"},y=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),x=e.exports={offset:a.getLastTimestamp(),now:a,origin:v,features:{},xhrWrappable:y,userAgent:u};t(15),t(19),l[p]?(l[p]("DOMContentLoaded",o,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",i),d[h]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var b=0},{}],"wrap-function":[function(t,e,n){function r(t,e){function n(e,n,r,s,f){function nrWrapper(){var o,a,u,l;try{a=this,o=d(arguments),u="function"==typeof r?r(o,a):r||{}}catch(p){i([p,"",[o,a,s],u],t)}c(n+"start",[o,a,s],u,f);try{return l=e.apply(a,o)}catch(h){throw c(n+"err",[o,a,h],u,f),h}finally{c(n+"end",[o,a,l],u,f)}}return a(e)?e:(n||(n=""),nrWrapper[l]=e,o(e,nrWrapper,t),nrWrapper)}function r(t,e,r,i,o){r||(r="");var c,s,f,u="-"===r.charAt(0);for(f=0;f<e.length;f++)s=e[f],c=t[s],a(c)||(t[s]=n(c,u?s+r:r,i,s,o))}function c(n,r,o,a){if(!h||e){var c=h;h=!0;try{t.emit(n,r,o,e,a)}catch(s){i([s,n,r,o],t)}h=c}}return t||(t=u),n.inPlace=r,n.flag=l,n}function i(t,e){e||(e=u);try{e.emit("internal-error",t)}catch(n){}}function o(t,e,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(t);return r.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(o){i([o],n)}for(var a in t)p.call(t,a)&&(e[a]=t[a]);return e}function a(t){return!(t&&t instanceof Function&&t.apply&&!t[l])}function c(t,e){var n=e(t);return n[l]=t,o(t,n,u),n}function s(t,e,n){var r=t[e];t[e]=c(r,n)}function f(){for(var t=arguments.length,e=new Array(t),n=0;n<t;++n)e[n]=arguments[n];return e}var u=t("ee"),d=t(24),l="nr@original",p=Object.prototype.hasOwnProperty,h=!1;e.exports=r,e.exports.wrapFunction=c,e.exports.wrapInPlace=s,e.exports.argsToArray=f},{}]},{},["loader",2,12,4,3]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"b20fb8f0df","applicationID":"12922478","transactionName":"ZwQDMEZRXUQHBkIKXF5OJxFaU0deCQsZE19RDxJKQllWQBVfZg9SXjIEBUZTWxkBAEI=","queueTime":3,"applicationTime":1626,"agent":""}</script>
+<meta name=viewport content="width=1374, initial-scale=1">
+<script>
+// ensures that our data layer variables are available for use in experiment targeting in Optimize
+window.dataLayer = window.dataLayer || [];
+</script>
+<style>.async-hide { opacity: 0 !important} </style>
+<script>
+(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;
+h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+(a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);
+})(window,document.documentElement,'async-hide','dataLayer',4000,{'GTM-MGD4QNL':true});
+</script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-65702523-1', 'auto', {allowLinker: true}); //Insert GA Property ID
+ga('require', 'GTM-MGD4QNL'); //Insert Optimize Container ID
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T8KX2FG');</script>
+<title>Clover Health | Enroll in Medicare Advantage Plans</title>
+<link rel=canonical href="https://www.cloverhealth.com/en/plans"/>
+<link rel=alternate hreflang=en-us href="https://www.cloverhealth.com/en/plans"/>
+<link rel=alternate hreflang=es-us href="https://www.cloverhealth.com/es/planes"/>
+<meta name=msapplication-TileColor content="#186555"/>
+<meta name=msapplication-square70x70logo content="https://cdn.cloverhealth.com/assets/img/live-tile-small-70x70.png?2021-02-19 00:24:55+00:00"/>
+<meta name=msapplication-square150x150logo content="https://cdn.cloverhealth.com/assets/img/live-tile-medium-150x150.png?2021-02-19 00:24:55+00:00"/>
+<meta name=msapplication-square310x310logo content="https://cdn.cloverhealth.com/assets/img/live-tile-large-310x310.png?2021-02-19 00:24:55+00:00"/>
+<meta name=description content="Find a Clover Medicare Advantage plan in your area. With most plans starting at $0/month, each comes with vision, hearing, dental, and more.">
+<link rel="shortcut icon" href="https://cdn.cloverhealth.com/assets/img/favicon.ico?2021-02-19 00:24:55+00:00">
+<link rel=icon type="image/png" href="https://cdn.cloverhealth.com/assets/img/favicon.png?2021-02-19 00:24:55+00:00">
+<link rel=apple-touch-icon sizes=120x120 href="https://cdn.cloverhealth.com/assets/img/apple-touch-icon-120x120.png?2021-02-19 00:24:55+00:00">
+<link rel=apple-touch-icon sizes=152x152 href="https://cdn.cloverhealth.com/assets/img/apple-touch-icon-152x152.png?2021-02-19 00:24:55+00:00">
+<link rel=apple-touch-icon sizes=180x180 href="https://cdn.cloverhealth.com/assets/img/apple-touch-icon-180x180.png?2021-02-19 00:24:55+00:00">
+<link rel=stylesheet href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin=anonymous>
+<link type="text/css" href="../assets/bundles/app_css.66a4908ae9c9ca206652.css" rel=stylesheet />
+<!--[if lt IE 9]>
+        <script src="https://cdn.cloverhealth.com/assets/3rdparty/respond.min.js?2021-02-19 00:24:55+00:00"></script>
+        <script src="https://cdn.cloverhealth.com/assets/3rdparty/html5shiv.min.js?2021-02-19 00:24:55+00:00"></script>
+    <![endif]-->
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T8KX2FG" height=0 width=0 style="display:none;visibility:hidden"></iframe></noscript>
+<a class="skippy sr-only sr-only-focusable" href="#content">
+<div class=container>
+<span class=skiplink-text>Skip to main content</span>
+</div>
+</a>
+<a class="skippy sr-only sr-only-focusable" href="tel:+18887781478">
+<div class=container>
+<span class=skiplink-text>For assistance, call Clover at 1-888-778-1478 (TTY 711)</span>
+</div>
+</a>
+<nav class=growth-header role=navigation>
+<div class=growth-header__container>
+<div class=growth-header__menu>
+<div class=growth-header__brand>
+<a class=growth-header__logo href="/" aria-label="Clover homepage">
+Clover Health
+</a>
+</div>
+<input type=checkbox class=growth-header__checkbox id=clover-nav-collpase-trigger />
+<div class="growth-header__nav collapse" id=clover-nav-collapse>
+<div class=growth-nav>
+<div class=growth-nav__contact>
+<a class="btn btn-primary btn-block" href="tel:+18008366890">
+Call now
+</a>
+</div>
+<div class=growth-nav__login>
+<a class="btn btn-default btn-block" href="https://my.cloverhealth.com/login/?next=/">
+Log in to My Clover
+</a>
+</div>
+<div class=growth-nav__items>
+<div class="
+      growth-nav__item
+      
+      
+    ">
+<a class="
+          growth-nav__link
+          
+        " href="/plans">
+Plans
+</a>
+</div>
+<div class="
+      growth-nav__item
+       growth-nav__item--dropdown 
+      
+    " id=nav--m>
+<input id=nav__checkbox--m type=checkbox class=growth-nav__checkbox />
+<label for=nav__checkbox--m class=growth-nav__toggle data-toggle=dropdown data-target="#nav--m" aria-haspopup=true aria-expanded=false>
+Members
+</label>
+<ul class=dropdown-menu>
+<li class=child>
+<a href="https://my.cloverhealth.com/login/?next=/">Log in to My Clover</a>
+</li>
+<li class=child>
+<a href="/en/members/find-provider">Find a Provider / Pharmacy</a>
+</li>
+<li class=child>
+<a href="/en/members/formulary">Formulary</a>
+</li>
+<li class=child>
+<a href="/en/members/plan-documents">Plan Documents</a>
+</li>
+<li class=child>
+<a href="/en/members/supplemental-benefits">Supplemental Benefits</a>
+</li>
+<li class=child>
+<a href="/en/members/mail-order-pharmacy">Mail Order Rx</a>
+</li>
+<li class=child>
+<a href="/en/members/plan-documents/health-assessment-survey">Health Assessment Survey</a>
+</li>
+<li class=child>
+<a href="/en/members/contact-us">Contact Us</a>
+</li>
+</ul>
+</div>
+<div class="
+      growth-nav__item
+       growth-nav__item--dropdown 
+      
+    " id=nav--a>
+<input id=nav__checkbox--a type=checkbox class=growth-nav__checkbox />
+<label for=nav__checkbox--a class=growth-nav__toggle data-toggle=dropdown data-target="#nav--a" aria-haspopup=true aria-expanded=false>
+About Us
+</label>
+<ul class=dropdown-menu>
+<li class=child>
+<a href="/en/about-us/about-clover">About Clover</a>
+</li>
+<li class=child>
+<a href="/en/about-us/our-story">Our Story</a>
+</li>
+<li class=child>
+<a href="/en/about-us/member-stories">Member Stories</a>
+</li>
+<li class=child>
+<a href="/en/about-us/press">Press</a>
+</li>
+<li class=child>
+<a href="/en/about-us/careers">Careers</a>
+</li>
+<li class=child>
+<a href="/en/about-us/medicare-faq">Medicare FAQ</a>
+</li>
+<li class=child>
+<a href="https://investors.cloverhealth.com/">Investors</a>
+</li>
+</ul>
+</div>
+<div class="
+      growth-nav__item
+       growth-nav__item--dropdown 
+      
+    " id=nav--l>
+<input id=nav__checkbox--l type=checkbox class=growth-nav__checkbox />
+<label for=nav__checkbox--l class=growth-nav__toggle data-toggle=dropdown data-target="#nav--l" aria-haspopup=true aria-expanded=false>
+Locations
+</label>
+<ul class=dropdown-menu>
+<li class=child>
+<a href="/en/locations/medicare-plans-arizona">Arizona</a>
+</li>
+<li class=child>
+<a href="/en/locations/medicare-plans-georgia">Georgia</a>
+</li>
+<li class=child>
+<a href="/en/locations/medicare-advantage-plans-mississippi">Mississippi</a>
+</li>
+<li class=child>
+<a href="/en/locations/medicare-plans-new-jersey">New Jersey</a>
+</li>
+<li class=child>
+<a href="/en/locations/medicare-plans-pennsylvania">Pennsylvania</a>
+</li>
+<li class=child>
+<a href="/en/locations/medicare-plans-south-carolina">South Carolina</a>
+</li>
+<li class=child>
+<a href="/en/locations/medicare-plans-tennessee">Tennessee</a>
+</li>
+<li class=child>
+<a href="/en/locations/medicare-plans-texas">Texas</a>
+</li>
+</ul>
+</div>
+</div>
+<div class=growth-nav__items_separator></div>
+<div class=growth-nav__items>
+<div class="
+      growth-nav__item
+      
+      
+    ">
+<a class="
+          growth-nav__link
+          
+        " href="/providers">
+For Providers
+</a>
+</div>
+<div class="
+      growth-nav__item
+       growth-nav__item--dropdown 
+      
+    " id=nav--b>
+<input id=nav__checkbox--b type=checkbox class=growth-nav__checkbox />
+<label for=nav__checkbox--b class=growth-nav__toggle data-toggle=dropdown data-target="#nav--b" aria-haspopup=true aria-expanded=false>
+For Brokers
+</label>
+<ul class=dropdown-menu>
+<li class=child>
+<a href="/en/brokers/why-sell-clover-health">Why Sell Clover Health</a>
+</li>
+<li class=child>
+<a href="/en/brokers/plan-documents-enrollment">Plan Documents &amp; Enrollment</a>
+</li>
+<li class=child>
+<a href="/en/brokers/helpful-resources">Helpful Resources</a>
+</li>
+<li class=child>
+<a href="/en/brokers/broker-event-registration">Broker Event Registration</a>
+</li>
+<li class=child>
+<a href="/en/brokers/frequently-asked-questions">Broker FAQ</a>
+</li>
+<li class=child>
+<a href="/en/brokers/provider-formulary-lookup">Provider &amp; Formulary Lookup</a>
+</li>
+<li class=child>
+<a href="https://brokers.cloverhealth.com/v5fmsnet/MONEY/OeFrame.asp?PmSess1=2811296&amp;Action=LOGIN&amp;pos=CLOVER&amp;v=6&amp;OfferID=&amp;sxref=">Broker Marketing Portal</a>
+</li>
+</ul>
+</div>
+<div class="growth-nav__languages growth-nav__items">
+<menu class=dropdown>
+<button href="#" class="dropdown-toggle navbar__toplevel btn" data-toggle=dropdown aria-haspopup=true aria-expanded=false>
+<span class="fa fa-globe" aria-hidden=true></span>
+EN
+</button>
+<ul class=dropdown-menu>
+<li class="child descendant active">
+<a href="#" title="Change language to: English">
+EN
+</a>
+</li>
+<li class="child descendant ">
+<a href="/es" title="Change language to: Spanish">
+ES
+</a>
+</li>
+</ul>
+</menu>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=growth-header__contacts>
+<div class=growth-header__toggle>
+<label for=clover-nav-collpase-trigger class="navbar-toggle collapsed" data-toggle=collapse data-target="#clover-nav-collapse" aria-expanded=false aria-label="Toggle navigation">
+<span class="fa fa-bars"></span>
+</button>
+</div>
+<div class="growth-header__contact collapse">
+<a class="btn contact-telesales" href="tel:+18008366890">
+<span class=contact-text>Interested in Clover? We can help.</span>
+<span class=contact-phone>1-800-836-6890 (TTY 711)</span>
+</a>
+<a class="btn contact-members" href="tel:+18887781478">
+<span class=contact-text>For members*</span>
+<span class=contact-phone>1-888-778-1478 (TTY 711)</span>
+</a>
+</div>
+</div>
+</div>
+</nav>
+<div class=alerts></div>
+<div class="container-fluid page-container">
+<div class=page>
+<div class=warnings-container>
+<div id=browser-upgrade-banner class=hidden>
+<div class="row-fluid old-ie-banner bg-purple text-center">The Clover Health website is not supported by this browser. Please update your current browser or use another web browser for a better experience.</div>
+</div>
+<script>
+  // IE prior to version 11 has MSIE in its user agent.
+  // Thus, the banner will show in IE10 and below.
+  if (navigator.userAgent.indexOf("MSIE") >= 0) {
+    document.getElementById("browser-upgrade-banner").className = "";
+  }
+</script>
+<noscript>
+<div id=no-js-banner class="row-fluid no-js-banner bg-yellow text-center">You have JavaScript disabled. Please enable JavaScript for a better experience.</div>
+</noscript>
+</div>
+<div id=content role=main>
+<section>
+<div class="row bg-white herospace plan-search-herospace">
+<div class=col-xs-12>
+<h1 class=h2 style="color: #424242; text-align: center;">Clover Health is a Medicare plan done differently.</h1>
+<p class=h3 style="color: #424242; text-align: center;">Enter your ZIP code to see plans available in your county.</p>
+<form class="plan-search-herospace__form js-plan-search-herospace-form" action="" method=get>
+<div class="plan-search-herospace__input plan-search-herospace__input-zipcode form-group-lg">
+<input aria-label="Zip Code" id=plan-search-herospace__zipcode name=zip_code type=text inputmode=numeric pattern="[0-9]{5}" maxlength=5 placeholder="ZIP code" class="form-control plan-search-herospace__zipcode" value=07304>
+<span class="plan-search-herospace__error js-plan-search-herospace-error hidden">
+Please enter a valid ZIP code
+</span>
+</div>
+<input type=hidden name=year value=2021 />
+<div class="plan-search-herospace__input plan-search-herospace__input-submit form-group-lg">
+<input type=submit class="btn btn-primary btn-lg btn-block plan-search-herospace__submit gtm-zipcode-search" value=Search />
+</div>
+</form>
+</div>
+</div>
+<div class=row-fluid id=js-plan-search-results>
+<div class=row-fluid>
+<div class="plan-comparison-heros-2018 col-xs-12">
+<h2 style="text-align: center">
+We have 4 plans in Hudson County in 2021.
+</h2>
+<p style="text-align: center;">
+<strong>We can help you figure out if Clover is right for you.</strong>
+</p>
+<p style="text-align: center">Call <a href="tel:+18008366890">1-800-836-6890</a> (TTY 711)<br/>
+8am-8pm local time, 7 days a week</p>
+<p style="text-align: center;">
+<a class="btn btn-primary" href="/enroll-guide">Contact us</a>
+</p>
+</div>
+<div class="
+        growth-plan-comparison-chart
+        growth-plan-comparison-chart--plans-count-4
+      ">
+<div>
+<table>
+<thead class=growth-plan-comparison-chart__header>
+<tr class="
+    growth-plan-comparison
+    growth-plan-comparison--is-header
+    growth-plan-comparison--items-4
+  ">
+<th scope=col class="
+        growth-plan-comparison__label
+        
+      ">
+<div class="
+      growth-plan-data
+      growth-plan-data--label
+      growth-plan-data--summary
+    ">
+<span class=growth-plan-data__name></span>
+<p class=growth-plan-data__title aria-describedby=growth-plan-data__description--66022>
+Available plans
+</p>
+<div class=growth-plan-data__description-and-link>
+<p class=growth-plan-data__description id=growth-plan-data__description--66022>
+Here are the plans available in your area. If you have any questions, don’t hesitate to
+</p>
+<a class=growth-plan-data__link href="tel:+18008366890">
+give us a call.
+</a>
+</div>
+</div>
+</div>
+</th>
+<th class=growth-plan-comparison__value scope=col>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<dl>
+<dt class=growth-plan-data__name>Clover Health Value (HMO) (003)</dt>
+<dd class=growth-plan-data__premium>
+$37.30 / month
+</dd>
+<dd class=growth-plan-data__summary>
+A plan with $0 to low copays and allowances for comprehensive dental, eyewear, and OTC items. Best if you receive Extra Help from Medicare.
+</dd>
+<dd class=growth-plan-data__link>
+<a class=growth-plan-data__link href="/filer/file/1600094026/2084/">
+View full benefits
+</a>
+</dd>
+</dl>
+</div>
+</th>
+<th class=growth-plan-comparison__value scope=col>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<dl>
+<dt class=growth-plan-data__name>Clover Health Choice Value (PPO) (007)</dt>
+<dd class=growth-plan-data__premium>
+$37.30 / month
+</dd>
+<dd class=growth-plan-data__summary>
+A plan with $0 to low copay for doctor visits, diabetes supplies. Plus, allowances for eyewear and OTC items. Best if you receive Extra Help from Medicare.
+</dd>
+<dd class=growth-plan-data__link>
+<a class=growth-plan-data__link href="/filer/file/1600094024/2074/">
+View full benefits
+</a>
+</dd>
+</dl>
+</div>
+</th>
+<th class=growth-plan-comparison__value scope=col>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<dl>
+<dt class=growth-plan-data__name>Clover Health Choice (PPO) (001)</dt>
+<dd class=growth-plan-data__premium>
+$0 / month
+</dd>
+<dd class=growth-plan-data__summary>
+A plan with the freedom to choose your doctor without paying more. $0 copay primary care visits, diabetes supplies; allowances for OTC items.
+</dd>
+<dd class=growth-plan-data__link>
+<a class=growth-plan-data__link href="/filer/file/1600094024/2074/">
+View full benefits
+</a>
+</dd>
+</dl>
+</div>
+</th>
+<th class=growth-plan-comparison__value scope=col>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<dl>
+<dt class=growth-plan-data__name>Clover Health Classic (HMO) (002)</dt>
+<dd class=growth-plan-data__premium>
+$0 / month
+</dd>
+<dd class=growth-plan-data__summary>
+A plan with $0 to low copays, diabetes monitoring supplies, no Part D deductible, allowances for comprehensive dental, eyewear, and OTC items.
+</dd>
+<dd class=growth-plan-data__link>
+<a class=growth-plan-data__link href="/filer/file/1600094026/2084/">
+View full benefits
+</a>
+</dd>
+</dl>
+</div>
+</th>
+</tr>
+</thead>
+<tbody class=growth-plan-comparison-chart__benefits>
+<tr class=growth-plan-comparison-header>
+<th class=growth-plan-comparison-header__column colspan=5>
+<div class=growth-plan-comparison-header__icon>
+<div class="growth-icon growth-icon--star growth-icon--blue">
+<svg version=1.1 id=Layer_1 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x=0px y=0px viewBox="0 0 70 67.69" style="enable-background:new 0 0 70 67.69;" xml:space=preserve>
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+</style>
+<path class=st0 d="M36.44,0C55.6,0,70,10.95,70,33.42c0,11.23-4.18,20.16-10.95,25.92c-6.48,5.62-15.27,8.35-25.21,8.35
+	C14.55,67.69,0,56.6,0,34.14C0,12.1,15.7,0,36.44,0"/>
+<path class=st1 d="M37.52,13.41l4.74,9.74l10.6,1.56c2.05,0.3,2.87,2.85,1.38,4.32l-7.67,7.59l1.81,10.71
+	c0.35,2.07-1.79,3.65-3.62,2.67l-9.48-5.06L25.8,50c-1.83,0.98-3.97-0.6-3.62-2.67l1.81-10.71l-7.67-7.59
+	c-1.48-1.46-0.66-4.02,1.38-4.32l10.6-1.56l4.74-9.74C33.95,11.53,36.6,11.53,37.52,13.41"/>
+</svg>
+</div>
+</div>
+<div class=growth-plan-comparison-header__message>
+<h1 class=bem|add:"__title">
+Extra benefits and services
+</h1>
+<p class=growth-plan-comparison-header__description>
+Clover plans include these important benefits and services. Original Medicare doesn’t.
+</p>
+</div>
+</th>
+</tr>
+<tr class="
+    growth-plan-comparison
+    
+    growth-plan-comparison--items-4
+  ">
+<th scope=col class="
+        growth-plan-comparison__label
+        
+      ">
+<div class="
+      growth-plan-data
+      growth-plan-data--label
+      
+    ">
+<p class=growth-plan-data__title aria-describedby=growth-plan-data__description--66022>
+Routine dental exams and cleanings
+</p>
+<div class=growth-plan-data__description-and-link>
+<p class=growth-plan-data__description id=growth-plan-data__description--66022>
+Includes annual oral exam(s), cleanings, and X-Ray.
+</p>
+</div>
+</div>
+</div>
+</th>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+</tr>
+<tr class="
+    growth-plan-comparison
+    
+    growth-plan-comparison--items-4
+  ">
+<th scope=col class="
+        growth-plan-comparison__label
+        
+      ">
+<div class="
+      growth-plan-data
+      growth-plan-data--label
+      
+    ">
+<p class=growth-plan-data__title aria-describedby=growth-plan-data__description--66022>
+Comprehensive dental
+</p>
+<div class=growth-plan-data__description-and-link>
+<p class=growth-plan-data__description id=growth-plan-data__description--66022>
+A yearly allowance for dentures, fillings, crowns, and more.
+</p>
+</div>
+</div>
+</div>
+</th>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--false
+            " title=""></span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--false
+            " title=""></span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+</tr>
+<tr class="
+    growth-plan-comparison
+    
+    growth-plan-comparison--items-4
+  ">
+<th scope=col class="
+        growth-plan-comparison__label
+        
+      ">
+<div class="
+      growth-plan-data
+      growth-plan-data--label
+      
+    ">
+<p class=growth-plan-data__title aria-describedby=growth-plan-data__description--66022>
+Routine vision exams
+</p>
+<div class=growth-plan-data__description-and-link>
+<p class=growth-plan-data__description id=growth-plan-data__description--66022>
+Includes 1 exam plus a yearly allowance for glasses or contacts.
+</p>
+</div>
+</div>
+</div>
+</th>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+</tr>
+<tr class="
+    growth-plan-comparison
+    
+    growth-plan-comparison--items-4
+  ">
+<th scope=col class="
+        growth-plan-comparison__label
+        
+      ">
+<div class="
+      growth-plan-data
+      growth-plan-data--label
+      
+    ">
+<p class=growth-plan-data__title aria-describedby=growth-plan-data__description--66022>
+Routine hearing exams
+</p>
+<div class=growth-plan-data__description-and-link>
+<p class=growth-plan-data__description id=growth-plan-data__description--66022>
+Includes 1 exam through a TruHearing audiologist plus hearing aids for a $699 or $999 copay.
+</p>
+</div>
+</div>
+</div>
+</th>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+</tr>
+<tr class="
+    growth-plan-comparison
+    
+    growth-plan-comparison--items-4
+  ">
+<th scope=col class="
+        growth-plan-comparison__label
+        
+      ">
+<div class="
+      growth-plan-data
+      growth-plan-data--label
+      
+    ">
+<p class=growth-plan-data__title aria-describedby=growth-plan-data__description--66022>
+Gym membership
+</p>
+<div class=growth-plan-data__description-and-link>
+<p class=growth-plan-data__description id=growth-plan-data__description--66022>
+Get access to over 13,000 fitness centers though SilverSneakers®.
+</p>
+</div>
+</div>
+</div>
+</th>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+</tr>
+<tr class="
+    growth-plan-comparison
+    
+    growth-plan-comparison--items-4
+  ">
+<th scope=col class="
+        growth-plan-comparison__label
+        
+      ">
+<div class="
+      growth-plan-data
+      growth-plan-data--label
+      
+    ">
+<p class=growth-plan-data__title aria-describedby=growth-plan-data__description--66022>
+24/7 doctor visits
+</p>
+<div class=growth-plan-data__description-and-link>
+<p class=growth-plan-data__description id=growth-plan-data__description--66022>
+Speak to a board-certified doctor by phone, web, or mobile app.
+</p>
+</div>
+</div>
+</div>
+</th>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+</tr>
+<tr class="
+    growth-plan-comparison
+    
+    growth-plan-comparison--items-4
+  ">
+<th scope=col class="
+        growth-plan-comparison__label
+        
+      ">
+<div class="
+      growth-plan-data
+      growth-plan-data--label
+      
+    ">
+<p class=growth-plan-data__title aria-describedby=growth-plan-data__description--66022>
+OTC items
+</p>
+<div class=growth-plan-data__description-and-link>
+<p class=growth-plan-data__description id=growth-plan-data__description--66022>
+You get a quarterly allowance for select OTC items. Orders will be shipped to your home at no extra charge.
+</p>
+</div>
+</div>
+</div>
+</th>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class="
+              growth-plan-benefit__suffix
+              growth-plan-benefit__suffix--true
+              fa
+              fa-check
+            " title=""></span>
+</p>
+</div>
+</td>
+</tr>
+</tbody>
+<tbody class=growth-plan-comparison-chart__benefits>
+<tr class=growth-plan-comparison-header>
+<th class=growth-plan-comparison-header__column colspan=5>
+<div class=growth-plan-comparison-header__icon>
+<div class="growth-icon growth-icon--doctor-bag growth-icon--mint">
+<svg version=1.1 id=Layer_1 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x=0px y=0px viewBox="0 0 70 67.69" style="enable-background:new 0 0 70 67.69;" xml:space=preserve>
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+</style>
+<path class=st0 d="M36.44,0C55.6,0,70,10.95,70,33.42c0,11.23-4.18,20.16-10.95,25.92c-6.48,5.62-15.27,8.35-25.21,8.35
+	C14.55,67.69,0,56.6,0,34.14C0,12.1,15.7,0,36.44,0"/>
+<path class=st1 d="M52.48,23.12h-6.54v-2.81c0-2.39-1.94-4.33-4.33-4.33h-13c-2.39,0-4.33,1.94-4.33,4.33v2.81h-6.54
+	c-1.78,0-3.23,1.46-3.23,3.23v22.38c0,1.78,1.45,3.23,3.23,3.23h34.74c1.78,0,3.23-1.46,3.23-3.23V26.36
+	C55.71,24.58,54.26,23.12,52.48,23.12z M28.6,23.12h13v-2.81h-13V23.12z M42.68,39.06c0,0.46-0.38,0.84-0.84,0.84h-4.32v4.32
+	c0,0.46-0.38,0.84-0.84,0.84h-3.16c-0.46,0-0.84-0.38-0.84-0.84V39.9h-4.32c-0.46,0-0.84-0.38-0.84-0.84V35.9
+	c0-0.46,0.38-0.84,0.84-0.84h4.32v-4.32c0-0.46,0.38-0.84,0.84-0.84h3.16c0.46,0,0.84,0.38,0.84,0.84v4.32h4.32
+	c0.46,0,0.84,0.38,0.84,0.84V39.06z"/>
+</svg>
+</div>
+</div>
+<div class=growth-plan-comparison-header__message>
+<h1 class=bem|add:"__title">
+Core Benefits
+</h1>
+<p class=growth-plan-comparison-header__description>
+With Clover Health, we try to keep your copays as low as possible to keep your out-of-pocket costs as low as possible. Original Medicare only pays 80% and doesn’t cover most prescription drugs.
+</p>
+</div>
+</th>
+</tr>
+<tr class="
+    growth-plan-comparison
+    
+    growth-plan-comparison--items-4
+  ">
+<th scope=col class="
+        growth-plan-comparison__label
+        
+      ">
+<div class="
+      growth-plan-data
+      growth-plan-data--label
+      
+    ">
+<p class=growth-plan-data__title aria-describedby=growth-plan-data__description--66022>
+Max. out of pocket cost
+</p>
+<div class=growth-plan-data__description-and-link>
+<p class=growth-plan-data__description id=growth-plan-data__description--66022>
+This is the most you’ll pay out of pocket during the plan year.
+</p>
+</div>
+</div>
+</div>
+</th>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$7,550
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$7,550
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$7,550
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$7,550
+</span>
+</p>
+</div>
+</td>
+</tr>
+<tr class="
+    growth-plan-comparison
+    
+    growth-plan-comparison--items-4
+  ">
+<th scope=col class="
+        growth-plan-comparison__label
+        
+      ">
+<div class="
+      growth-plan-data
+      growth-plan-data--label
+      
+    ">
+<p class=growth-plan-data__title aria-describedby=growth-plan-data__description--66022>
+Primary care visits*
+</p>
+<div class=growth-plan-data__description-and-link>
+<p class=growth-plan-data__description id=growth-plan-data__description--66022>
+See your primary care doctor as often as you need to.
+</p>
+<a class=growth-plan-data__link href="/members/find-provider">
+See if your doctor is in-network
+<span class="fa fa-arrow-right"></span>
+</a>
+</div>
+</div>
+</div>
+</th>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$0
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$0
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$0
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$0
+</span>
+</p>
+</div>
+</td>
+</tr>
+<tr class="
+    growth-plan-comparison
+    
+    growth-plan-comparison--items-4
+  ">
+<th scope=col class="
+        growth-plan-comparison__label
+        
+      ">
+<div class="
+      growth-plan-data
+      growth-plan-data--label
+      
+    ">
+<p class=growth-plan-data__title aria-describedby=growth-plan-data__description--66022>
+Specialist visits*
+</p>
+<div class=growth-plan-data__description-and-link>
+<p class=growth-plan-data__description id=growth-plan-data__description--66022>
+See specialists as often as you need to.
+</p>
+</div>
+</div>
+</div>
+</th>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$5
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$5
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$20
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$20
+</span>
+</p>
+</div>
+</td>
+</tr>
+<tr class="
+    growth-plan-comparison
+    
+    growth-plan-comparison--items-4
+  ">
+<th scope=col class="
+        growth-plan-comparison__label
+        
+      ">
+<div class="
+      growth-plan-data
+      growth-plan-data--label
+      
+    ">
+<p class=growth-plan-data__title aria-describedby=growth-plan-data__description--66022>
+Inpatient hospital stay
+</p>
+<div class=growth-plan-data__description-and-link>
+<p class=growth-plan-data__description id=growth-plan-data__description--66022>
+At many of the trusted hospitals in your area.
+</p>
+</div>
+</div>
+</div>
+</th>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$200
+</span>
+<span class=growth-plan-benefit__suffix>
+per day (days 1–5)
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$0
+</span>
+<span class=growth-plan-benefit__suffix>
+per day (days 6–365)
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$200
+</span>
+<span class=growth-plan-benefit__suffix>
+per day (days 1–5)
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$0
+</span>
+<span class=growth-plan-benefit__suffix>
+per day (days 6–365)
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$290
+</span>
+<span class=growth-plan-benefit__suffix>
+per day (days 1–5)
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$0
+</span>
+<span class=growth-plan-benefit__suffix>
+per day (days 6–365)
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$290
+</span>
+<span class=growth-plan-benefit__suffix>
+per day (days 1–5)
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$0
+</span>
+<span class=growth-plan-benefit__suffix>
+per day (days 6–365)
+</span>
+</p>
+</div>
+</td>
+</tr>
+<tr class="
+    growth-plan-comparison
+    
+    growth-plan-comparison--items-4
+  ">
+<th scope=col class="
+        growth-plan-comparison__label
+        
+      ">
+<div class="
+      growth-plan-data
+      growth-plan-data--label
+      
+    ">
+<p class=growth-plan-data__title aria-describedby=growth-plan-data__description--66022>
+Emergency care
+</p>
+<div class=growth-plan-data__description-and-link>
+<p class=growth-plan-data__description id=growth-plan-data__description--66022>
+The copay is waived if you’re admitted to the hospital.
+</p>
+</div>
+</div>
+</div>
+</th>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$90
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$90
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$90
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$90
+</span>
+</p>
+</div>
+</td>
+</tr>
+<tr class="
+    growth-plan-comparison
+    
+    growth-plan-comparison--items-4
+  ">
+<th scope=col class="
+        growth-plan-comparison__label
+        
+      ">
+<div class="
+      growth-plan-data
+      growth-plan-data--label
+      
+    ">
+<p class=growth-plan-data__title aria-describedby=growth-plan-data__description--66022>
+Outpatient surgery
+</p>
+<div class=growth-plan-data__description-and-link>
+<p class=growth-plan-data__description id=growth-plan-data__description--66022>
+For surgery and supplies performed in an outpatient setting.
+</p>
+</div>
+</div>
+</div>
+</th>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$115
+</span>
+<span class=growth-plan-benefit__suffix>
+for ambulatory services
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$200
+</span>
+<span class=growth-plan-benefit__suffix>
+for hospital services
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$115
+</span>
+<span class=growth-plan-benefit__suffix>
+for ambulatory services
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$200
+</span>
+<span class=growth-plan-benefit__suffix>
+for hospital services
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$200
+</span>
+<span class=growth-plan-benefit__suffix>
+for ambulatory services
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$325
+</span>
+<span class=growth-plan-benefit__suffix>
+for hospital services
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$225
+</span>
+<span class=growth-plan-benefit__suffix>
+for ambulatory services
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$325
+</span>
+<span class=growth-plan-benefit__suffix>
+for hospital services
+</span>
+</p>
+</div>
+</td>
+</tr>
+<tr class="
+    growth-plan-comparison
+    
+    growth-plan-comparison--items-4
+  ">
+<th scope=col class="
+        growth-plan-comparison__label
+        
+      ">
+<div class="
+      growth-plan-data
+      growth-plan-data--label
+      
+    ">
+<p class=growth-plan-data__title aria-describedby=growth-plan-data__description--66022>
+Ambulance
+</p>
+<div class=growth-plan-data__description-and-link>
+<p class=growth-plan-data__description id=growth-plan-data__description--66022>
+Covers medically necessary transportation to a doctor or hospital.
+</p>
+</div>
+</div>
+</div>
+</th>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$200
+</span>
+<span class=growth-plan-benefit__suffix>
+per service
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$200
+</span>
+<span class=growth-plan-benefit__suffix>
+per service
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$200
+</span>
+<span class=growth-plan-benefit__suffix>
+per service
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$250
+</span>
+<span class=growth-plan-benefit__suffix>
+per service
+</span>
+</p>
+</div>
+</td>
+</tr>
+<tr class="
+    growth-plan-comparison
+    
+    growth-plan-comparison--items-4
+  ">
+<th scope=col class="
+        growth-plan-comparison__label
+        
+      ">
+<div class="
+      growth-plan-data
+      growth-plan-data--label
+      
+    ">
+<p class=growth-plan-data__title aria-describedby=growth-plan-data__description--66022>
+Prescription costs
+</p>
+<div class=growth-plan-data__description-and-link>
+<p class=growth-plan-data__description id=growth-plan-data__description--66022>
+Prices are for a 30-day supply from an in-network pharmacy.
+</p>
+<a class=growth-plan-data__link href="/members/formulary">
+See if your medications are covered
+<span class="fa fa-arrow-right"></span>
+</a>
+</div>
+</div>
+</div>
+</th>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$2
+</span>
+<span class=growth-plan-benefit__suffix>
+for Tier 1
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+22%
+</span>
+<span class=growth-plan-benefit__suffix>
+for Tier 2
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+22%
+</span>
+<span class=growth-plan-benefit__suffix>
+for Tier 3
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+25%
+</span>
+<span class=growth-plan-benefit__suffix>
+for Tier 4
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+25%
+</span>
+<span class=growth-plan-benefit__suffix>
+for Tier 5
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$445
+</span>
+<span class=growth-plan-benefit__suffix>
+for Tiers 2–5 deductible
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$2
+</span>
+<span class=growth-plan-benefit__suffix>
+for Tier 1
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+22%
+</span>
+<span class=growth-plan-benefit__suffix>
+for Tier 2
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+22%
+</span>
+<span class=growth-plan-benefit__suffix>
+for Tier 3
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+25%
+</span>
+<span class=growth-plan-benefit__suffix>
+for Tier 4
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+25%
+</span>
+<span class=growth-plan-benefit__suffix>
+for Tier 5
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$445
+</span>
+<span class=growth-plan-benefit__suffix>
+for Tiers 2–5 deductible
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$2
+</span>
+<span class=growth-plan-benefit__suffix>
+for Tier 1
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$10
+</span>
+<span class=growth-plan-benefit__suffix>
+for Tier 2
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$40
+</span>
+<span class=growth-plan-benefit__suffix>
+for Tier 3
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$95
+</span>
+<span class=growth-plan-benefit__suffix>
+for Tier 4
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+30%
+</span>
+<span class=growth-plan-benefit__suffix>
+for Tier 5
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$175
+</span>
+<span class=growth-plan-benefit__suffix>
+for Tiers 3–5 deductible
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$2
+</span>
+<span class=growth-plan-benefit__suffix>
+for Tier 1
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$10
+</span>
+<span class=growth-plan-benefit__suffix>
+for Tier 2
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$40
+</span>
+<span class=growth-plan-benefit__suffix>
+for Tier 3
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+$95
+</span>
+<span class=growth-plan-benefit__suffix>
+for Tier 4
+</span>
+</p>
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__cost>
+33%
+</span>
+<span class=growth-plan-benefit__suffix>
+for Tier 5
+</span>
+</p>
+</div>
+</td>
+</tr>
+<tr class="
+    growth-plan-comparison
+    
+    growth-plan-comparison--items-4
+  ">
+<th scope=col class="
+        growth-plan-comparison__label
+        
+      ">
+<div class="
+      growth-plan-data
+      growth-plan-data--label
+      
+    ">
+<p class=growth-plan-data__title aria-describedby=growth-plan-data__description--66022>
+Out of network costs
+</p>
+<div class=growth-plan-data__description-and-link>
+<p class=growth-plan-data__description id=growth-plan-data__description--66022>
+This is the amount you are responsible for paying if you see an out-of-network provider.
+</p>
+</div>
+</div>
+</div>
+</th>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__suffix>
+Not covered
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__suffix>
+Cost shares vary based on benefit, refer to the Evidence of Coverage for more details
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__suffix>
+Cost shares vary based on benefit, refer to the Evidence of Coverage for more details
+</span>
+</p>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class="
+      growth-plan-data
+      
+      
+    ">
+<p class=growth-plan-benefit>
+<span class=growth-plan-benefit__suffix>
+Not covered
+</span>
+</p>
+</div>
+</td>
+</tr>
+</tbody>
+<tbody class=growth-plan-comparison-chart__ctas>
+<tr class="
+    growth-plan-comparison
+    
+    growth-plan-comparison--items-4
+  ">
+<th scope=col class="
+        growth-plan-comparison__label
+        growth-plan-comparison__label--empty
+      ">
+</th>
+<td class=growth-plan-comparison__value>
+<div class=growth-plan-cta data-plan-id=038b5c64-1328-5aed-bf79-c5e0c5ac7d6e>
+<a class="growth-plan-cta__enroll js-plan-comparison-chart-enroll-link" data-skip-modal=true data-plan-name="Clover Health Value (HMO)" href="/en/enroll/2021/003/start?county=Hudson+County&amp;state=NJ&amp;zipcode=07304">
+Select Clover Health Value (HMO) (003)
+</a>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class=growth-plan-cta data-plan-id=048a4705-54ad-52d0-a2f9-9444149f1ecf>
+<a class="growth-plan-cta__enroll js-plan-comparison-chart-enroll-link" data-skip-modal=true data-plan-name="Clover Health Choice Value (PPO)" href="/en/enroll/2021/007/start?county=Hudson+County&amp;state=NJ&amp;zipcode=07304">
+Select Clover Health Choice Value (PPO) (007)
+</a>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class=growth-plan-cta data-plan-id=70f0e8e1-b472-55a9-89fd-6b649bf9b33e>
+<a class="growth-plan-cta__enroll js-plan-comparison-chart-enroll-link" data-skip-modal=true data-plan-name="Clover Health Choice (PPO)" href="/en/enroll/2021/001/start?county=Hudson+County&amp;state=NJ&amp;zipcode=07304">
+Select Clover Health Choice (PPO) (001)
+</a>
+</div>
+</td>
+<td class=growth-plan-comparison__value>
+<div class=growth-plan-cta data-plan-id=d0b310f5-07b3-5406-b806-ece8d2546898>
+<a class="growth-plan-cta__enroll js-plan-comparison-chart-enroll-link" data-skip-modal=true data-plan-name="Clover Health Classic (HMO)" href="/en/enroll/2021/002/start?county=Hudson+County&amp;state=NJ&amp;zipcode=07304">
+Select Clover Health Classic (HMO) (002)
+</a>
+</div>
+</td>
+</tr>
+</tbody>
+<tfoot class=growth-plan-comparison-chart__footer>
+<tr class=growth-plan-comparison-chart__comparison>
+<td colspan=5>
+<p>
+*Out-of-network/non-contracted providers are under no obligation to treat Clover members, except in emergency situations.
+<a class=growth-plan-comparison-chart__link href="/members/find-provider">See who’s in network with Clover</a>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<section>
+<div class="growth-plans-page-misc-container growth-plans-page-misc-container--hidden">
+<div class=growth-picture-text-column__container>
+<div class=growth-picture-text-column__container-header>
+<div class=growth-picture-text-column__container-surrounding-hr><hr/></div>
+<h2 class=growth-picture-text-column__title>OUR PLANS INCLUDE</h2>
+<div class=growth-picture-text-column__container-surrounding-hr><hr/></div>
+</div>
+<div class=growth-picture-text-column__items>
+<div class=growth-picture-text-column>
+<div class=growth-picture-text-column__image-alignment-left>
+<div class=flex-container>
+<div class=growth-picture-text-column__image>
+<img src="https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/37/da/37daba6d-7de4-471d-98aa-ed825ddc5e02/yellow.png__102x97_q85_subsampling-2.png" width=102 height=97 srcset="https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/37/da/37daba6d-7de4-471d-98aa-ed825ddc5e02/yellow.png__204x194_q85_subsampling-2.png 272w,
+https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/37/da/37daba6d-7de4-471d-98aa-ed825ddc5e02/yellow.png__102x97_q85_subsampling-2.png 136w" style="object-position: 50.0% 50.0%;" sizes=102px alt="ID card icon"/>
+</div>
+<div class=growth-picture-text-column__text-box>
+<h3 class=growth-picture-text-column__subtitle>Dental, Vision &amp; Hearing</h3>
+<p>Plans include routine dental, vision, and hearing coverage plus allowances for eyeglasses or contacts, and hearing aids. Many plans include allowances for comprehensive dental coverage.</p>
+</div>
+</div>
+</div>
+</div>
+<div class=growth-picture-text-column>
+<div class=growth-picture-text-column__image-alignment-left>
+<div class=flex-container>
+<div class=growth-picture-text-column__image>
+<img src="https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/e8/89/e889fc59-61a2-41c7-acda-a4ef84507568/doctor-bag-2x.png__102x97_q85_subsampling-2.png" width=102 height=97 srcset="https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/e8/89/e889fc59-61a2-41c7-acda-a4ef84507568/doctor-bag-2x.png__200x191_q85_subsampling-2.png 267w,
+https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/e8/89/e889fc59-61a2-41c7-acda-a4ef84507568/doctor-bag-2x.png__102x97_q85_subsampling-2.png 136w" style="object-position: 50.0% 50.0%;" sizes=102px alt="Healthcare icon"/>
+</div>
+<div class=growth-picture-text-column__text-box>
+<h3 class=growth-picture-text-column__subtitle>Easy Access to Doctors</h3>
+<p>In addition to in-person office visits, you can now see your doctor from the comfort of your home with a telehealth appointment. If your personal doctor isn’t available, Clover Health can connect you with a doctor or nurse practitioner via video or phone.</p>
+</div>
+</div>
+</div>
+</div>
+<div class=growth-picture-text-column>
+<div class=growth-picture-text-column__image-alignment-left>
+<div class=flex-container>
+<div class=growth-picture-text-column__image>
+<img src="https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/26/f8/26f80388-7a9c-4625-9c65-581df84637c3/purple.png__102x97_q85_subsampling-2.png" width=102 height=97 srcset="https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/26/f8/26f80388-7a9c-4625-9c65-581df84637c3/purple.png__204x194_q85_subsampling-2.png 272w,
+https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/26/f8/26f80388-7a9c-4625-9c65-581df84637c3/purple.png__102x97_q85_subsampling-2.png 136w" style="object-position: 50.0% 50.0%;" sizes=102px alt="Piggy bank icon"/>
+</div>
+<div class=growth-picture-text-column__text-box>
+<h3 class=growth-picture-text-column__subtitle>Over-the-Counter Allowances</h3>
+<p>All plans include quarterly allowances for over-the-counter (OTC) items. Save on everyday health-related items like thermometers, vitamins, allergy tablets, cough drops, bandages, cotton swabs, and more.</p>
+</div>
+</div>
+</div>
+</div>
+<div class=growth-picture-text-column>
+<div class=growth-picture-text-column__image-alignment-left>
+<div class=flex-container>
+<div class=growth-picture-text-column__image>
+<img src="https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/9a/60/9a60d585-c51a-4563-8f59-268b1594aff8/mint.png__102x97_q85_subsampling-2.png" width=102 height=97 srcset="https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/9a/60/9a60d585-c51a-4563-8f59-268b1594aff8/mint.png__204x194_q85_subsampling-2.png 272w,
+https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/9a/60/9a60d585-c51a-4563-8f59-268b1594aff8/mint.png__102x97_q85_subsampling-2.png 136w" style="object-position: 50.0% 50.0%;" sizes=102px alt="Map pin icon"/>
+</div>
+<div class=growth-picture-text-column__text-box>
+<h3 class=growth-picture-text-column__subtitle>Broad and Open Networks</h3>
+<p>Clover Health puts your needs first. Our PPO provider networks are broad and open, enabling our members to see any doctor participating in Medicare who is willing to accept them.</p>
+</div>
+</div>
+</div>
+</div>
+<div class=growth-picture-text-column>
+<div class=growth-picture-text-column__image-alignment-left>
+<div class=flex-container>
+<div class=growth-picture-text-column__image>
+<img src="https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/ed/d1/edd14b28-7a3c-419a-9bd9-a0fe3392c275/pills-2x.png__102x97_q85_subsampling-2.png" width=102 height=97 srcset="https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/ed/d1/edd14b28-7a3c-419a-9bd9-a0fe3392c275/pills-2x.png__200x191_q85_subsampling-2.png 267w,
+https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/ed/d1/edd14b28-7a3c-419a-9bd9-a0fe3392c275/pills-2x.png__102x97_q85_subsampling-2.png 136w" style="object-position: 50.0% 50.0%;" sizes=102px alt="Pill bottle icon"/>
+</div>
+<div class=growth-picture-text-column__text-box>
+<h3 class=growth-picture-text-column__subtitle>Prescription Drug Coverage</h3>
+<p>All plans include prescription drug coverage, so there is no need for an additional plan. You’ll also save time (and often money) by getting 100-day refills of your prescriptions via mail order.</p>
+</div>
+</div>
+</div>
+</div>
+<div class=growth-picture-text-column>
+<div class=growth-picture-text-column__image-alignment-left>
+<div class=flex-container>
+<div class=growth-picture-text-column__image>
+<img src="https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/00/dd/00ddb372-6f42-4fc1-910b-96bb3a6bc7fb/orange.png__102x97_q85_subsampling-2.png" width=102 height=97 srcset="https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/00/dd/00ddb372-6f42-4fc1-910b-96bb3a6bc7fb/orange.png__204x194_q85_subsampling-2.png 272w,
+https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/00/dd/00ddb372-6f42-4fc1-910b-96bb3a6bc7fb/orange.png__102x97_q85_subsampling-2.png 136w" style="object-position: 50.0% 50.0%;" sizes=102px alt="Cursor icon"/>
+</div>
+<div class=growth-picture-text-column__text-box>
+<h3 class=growth-picture-text-column__subtitle>The Clover Assistant</h3>
+<p>We provide doctors with our Clover Assistant technology at no cost. The Clover Assistant helps your primary care doctor get a more complete view of your overall health.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=block>
+<div class=container style="margin-bottom: 80px;"></div>
+</div>
+<div class=growth-picture>
+<div class=growth-picture__image-container>
+<svg viewBox="0 0 1302 864"></svg>
+<img class=growth-picture__image--crop-center src="https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/92/3d/923d0fd0-3b2e-40a9-9405-c7649c02b80d/alfonso-margarita-varon-big-2x-min.png__1526x960_q85_crop-smart_subsampling-2.jpg" width=1526 height=960 srcset="https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/92/3d/923d0fd0-3b2e-40a9-9405-c7649c02b80d/alfonso-margarita-varon-big-2x-min.png__1526x960_q85_crop-smart_subsampling-2.jpg 2035w,
+https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/92/3d/923d0fd0-3b2e-40a9-9405-c7649c02b80d/alfonso-margarita-varon-big-2x-min.png__1302x820_q85_crop-smart_subsampling-2.jpg 1736w,
+https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/92/3d/923d0fd0-3b2e-40a9-9405-c7649c02b80d/alfonso-margarita-varon-big-2x-min.png__900x567_q85_crop-smart_subsampling-2.jpg 1200w,
+https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/92/3d/923d0fd0-3b2e-40a9-9405-c7649c02b80d/alfonso-margarita-varon-big-2x-min.png__882x555_q85_crop-smart_subsampling-2.jpg 1176w,
+https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/92/3d/923d0fd0-3b2e-40a9-9405-c7649c02b80d/alfonso-margarita-varon-big-2x-min.png__789x497_q85_crop-smart_subsampling-2.jpg 1052w,
+https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/92/3d/923d0fd0-3b2e-40a9-9405-c7649c02b80d/alfonso-margarita-varon-big-2x-min.png__450x284_q85_crop-smart_subsampling-2.jpg 600w" style="object-position: 50.0% 50.0%;" alt="Clover Health Medicare Advantage Plan members sitting down together" sizes="
+        (max-width: 991px) 100vw,
+        1302px
+      "/>
+</div>
+<div class=growth-picture__words>
+<div>
+<h2 class=growth-picture__words__header>
+VALUE
+</h2>
+<div class=growth-picture__words__tagline>
+We provide the benefits members want most, while making sure our plans are easy on your budget.
+</div>
+<div class=text>
+Our plans feature low/$0 premiums, low copays, and low prescription drug costs, plus there’s a cap on out-of-pocket expenses. We can help you apply for programs that may help pay for premiums, prescriptions, and even your utility bills.
+</div>
+</div>
+</div>
+</div>
+<div class=block>
+<div class=container style="margin-bottom: 80px;"></div>
+</div>
+<div class="growth-picture growth-picture--image-on-right">
+<div class=growth-picture__image-container>
+<svg viewBox="0 0 1302 864"></svg>
+<img class=growth-picture__image--crop-center src="https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/03/1a/031aaf6b-bf6a-46c3-8534-3cea3e17ef8b/clover-team-min.png__1526x960_q85_crop-smart_subsampling-2.jpg" width=1526 height=960 srcset="https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/03/1a/031aaf6b-bf6a-46c3-8534-3cea3e17ef8b/clover-team-min.png__1526x960_q85_crop-smart_subsampling-2.jpg 2035w,
+https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/03/1a/031aaf6b-bf6a-46c3-8534-3cea3e17ef8b/clover-team-min.png__1302x820_q85_crop-smart_subsampling-2.jpg 1736w,
+https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/03/1a/031aaf6b-bf6a-46c3-8534-3cea3e17ef8b/clover-team-min.png__900x567_q85_crop-smart_subsampling-2.jpg 1200w,
+https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/03/1a/031aaf6b-bf6a-46c3-8534-3cea3e17ef8b/clover-team-min.png__882x555_q85_crop-smart_subsampling-2.jpg 1176w,
+https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/03/1a/031aaf6b-bf6a-46c3-8534-3cea3e17ef8b/clover-team-min.png__789x497_q85_crop-smart_subsampling-2.jpg 1052w,
+https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/03/1a/031aaf6b-bf6a-46c3-8534-3cea3e17ef8b/clover-team-min.png__450x284_q85_crop-smart_subsampling-2.jpg 600w" style="object-position: 50.0% 50.0%;" alt="Clover Health care team" sizes="
+        (max-width: 991px) 100vw,
+        1302px
+      "/>
+</div>
+<div class=growth-picture__words>
+<div>
+<h2 class=growth-picture__words__header>
+CARE
+</h2>
+<div class=growth-picture__words__tagline>
+Our care teams support your relationship with your personal doctor and specialists.
+</div>
+<div class=text>
+We promptly get you the care, tests, or treatment your doctors recommend, and make sure you can get appointments as you soon as you feel you need them. We follow up after blood tests, x-rays, or other tests to help you understand the results and next steps.
+</div>
+<div class=growth-picture__cta>
+<a href=/en/members/find-provider class="btn-ghost btn btn-outline-primary btn-lg btn-block">
+<div class=growth-picture__words__buttonText>
+Search our provider network
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class=block>
+<div class=container style="margin-bottom: 80px;"></div>
+</div>
+<div class=growth-picture>
+<div class=growth-picture__image-container>
+<svg viewBox="0 0 1302 864"></svg>
+<img class=growth-picture__image--crop-center src="https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/86/ca/86ca55e8-e855-4271-86c6-498b50a6785e/scenario_soniasilva-2x-min.png__1526x960_q85_crop-smart_subsampling-2.jpg" width=1526 height=960 srcset="https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/86/ca/86ca55e8-e855-4271-86c6-498b50a6785e/scenario_soniasilva-2x-min.png__1526x960_q85_crop-smart_subsampling-2.jpg 2035w,
+https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/86/ca/86ca55e8-e855-4271-86c6-498b50a6785e/scenario_soniasilva-2x-min.png__1302x820_q85_crop-smart_subsampling-2.jpg 1736w,
+https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/86/ca/86ca55e8-e855-4271-86c6-498b50a6785e/scenario_soniasilva-2x-min.png__900x567_q85_crop-smart_subsampling-2.jpg 1200w,
+https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/86/ca/86ca55e8-e855-4271-86c6-498b50a6785e/scenario_soniasilva-2x-min.png__882x555_q85_crop-smart_subsampling-2.jpg 1176w,
+https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/86/ca/86ca55e8-e855-4271-86c6-498b50a6785e/scenario_soniasilva-2x-min.png__789x497_q85_crop-smart_subsampling-2.jpg 1052w,
+https://cdn.cloverhealth.com/filer_public_thumbnails/filer_public/86/ca/86ca55e8-e855-4271-86c6-498b50a6785e/scenario_soniasilva-2x-min.png__450x284_q85_crop-smart_subsampling-2.jpg 600w" style="object-position: 50.0% 50.0%;" alt="Clover Health care team member discussing Medicare Advantage options with Clover member" sizes="
+        (max-width: 991px) 100vw,
+        1302px
+      "/>
+</div>
+<div class=growth-picture__words>
+<div>
+<h2 class=growth-picture__words__header>
+PERSONALIZATION
+</h2>
+<div class=growth-picture__words__tagline>
+We take the time to get to know you and your needs, and to learn how we can meet them.
+</div>
+<div class=text>
+We work with you to help you reach your health goals and manage chronic conditions, so you can live a healthier, more active life. Plus we provide customized support based on your particular needs, like if you have high blood pressure.
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=row>
+<div class=growth-footer-cta>
+<div class="growth-footer-cta__text growth-footer-cta__text--bg-mint">
+<h2 class="h2 growth-footer-cta__tagline">Let's find out if Clover is right for you.</h2>
+<p class=h3> We're available to talk 8 am-8 pm local time, 7 days a week.*</p>
+<div class=growth-footer-cta__buttons>
+<a href="tel:+18008366890" type=submit class="btn btn-primary">Call 1-800-836-6890 (TTY 711)</a>
+<a href="/enroll-guide" type=submit class="btn btn-default">Request a call</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</div>
+</div>
+</div>
+<footer role=contentinfo class="growth-footer hidden-print">
+<div class=growth-footer__content>
+<p class=growth-footer__brand>
+Clover Health
+</p>
+<nav class=growth-footer__menus>
+<div>
+<h2>For Members</h2>
+<ul>
+<li><a href="/plans">Find a Plan</a></li>
+<li><a href="/members/find-provider">Find a Provider</a></li>
+<li><a href="/members/formulary">Formulary</a></li>
+<li><a href="/en/notice-of-nondiscrimination">Notice of Nondiscrimination</a></li>
+<li><a href="/filer/file/1538075435/1189/" target=_blank>Notice of Privacy Practices</a></li>
+</ul>
+</div>
+<div>
+<h2>For Providers</h2>
+<ul>
+<li><a href="/pre-auth-request">Submit a Pre-authorization</a></li>
+<li><a href="/providers/provider-tools/provider-forms">Forms and Documents</a></li>
+<li><a href="/filer/file/1596630782/2007/">Provider Manual</a></li>
+</ul>
+</div>
+<div>
+<h2>About</h2>
+<ul>
+<li><a href="/about-us/about-clover">About Clover</a></li>
+<li><a href="/about-us/careers">Careers</a></li>
+<li><a href="/members/contact-us">Contact Us</a></li>
+<li><a href="/brokers">Brokers</a></li>
+<li><a href="/en/blog">Blog</a></li>
+<li><a href="https://investors.cloverhealth.com/" target=_blank>Investors</a></li>
+</ul>
+</div>
+<div>
+<h2>Member Services</h2>
+<p>1-888-778-1478 (TTY 711)<br>
+8 am–8 pm local time, 7 days/week*</p>
+<p>Clover Health<br>
+P.O. Box 471<br>
+Jersey City, NJ 07303</p>
+</div>
+</nav>
+<aside class=growth-footer__disclaimer id=disclaimers>
+<p><small>*We are open from 8 am–8 pm local time, 7 days a week. From April 1st through September 30th, alternate technologies (for example, voicemail) will be used on the weekends and holidays.</small></p>
+</aside>
+<hr class=growth-footer__separator />
+<section class=growth-footer__disclaimer aria-label="Disclaimer section}">
+<p class=h5>
+Last Updated: 2/19/2021
+</p>
+<p><small>Clover Health is a Preferred Provider Organization (PPO) and a Health Maintenance Organization (HMO) with a Medicare contract. Enrollment in Clover Health depends on contract renewal. You must continue to pay your Medicare Part B premium. For plans that provide drug coverage, the formulary may change during the year. Out-of-network/non-contracted providers are under no obligation to treat Clover members, except in emergency situations. For a decision about whether we will cover an out-of-network service, we encourage you or your provider to ask us for a pre-service organization determination before you receive the service. Please call our customer service number or see your Evidence of Coverage for more information, including the cost-sharing that applies to out-of-network services.</small></p>
+<p><small>Medicare beneficiaries may also enroll in Clover Health through the CMS Medicare Online Enrollment Center located at <a href="https://www.medicare.gov" target=_blank>http://www.medicare.gov</a>. </small></p>
+<p><small>ATTENTION: If you speak English, language assistance services, free of charge, are available to you. Call 1-888-778-1478 (TTY 711).<br>
+<span lang=es>ATENCIÓN: Si usted habla español, tenemos servicios de asistencia lingüística disponibles para usted sin costo alguno. Llame al 1-888-778-1478 (TTY 711).</span><br>
+<span lang=zh>小贴士： 如果您说普通话， 欢迎使用免费语言协助服务。 请拨 1-888-778-1478 (TTY 711).</span></small></p>
+<h2>Disclaimers</h2>
+<p>This information is not a complete description of benefits. Call 1-888-778-1478 (TTY 711) for more information. Limitations, copayments, and restrictions may apply. Plan performance Medicare Star Ratings are assessed each year and may change from one year to the next. Benefits, premiums, and/or copayments/coinsurance may change on January 1 of each year. The formulary, pharmacy network, and/or provider network may change at any time. You will receive notice when necessary.</p>
+<p class=growth-footer__material-id>
+Y0129_Clover_Website_2021
+</p>
+</section>
+<hr class=growth-footer__separator />
+<div class=growth-footer__copyright>
+©2021 <p>Clover Health. All Rights Reserved. <a href="/en/editorial-policy">Editorial Policy</a>.</p>
+<a class=footer__privacy-policy href="/privacy-policy">Privacy Policy</a>
+</div>
+</div>
+</footer>
+<div id=exit-modal class="modal fade" tabindex=-1 role=dialog>
+<div class=modal-dialog>
+<div class=modal-content>
+<div class=modal-body>
+<h3>You're now leaving the Clover Health Website.</h3>
+<p>The information you will be accessing is provided by another organization or vendor. If you do not intend to leave our site, please click Cancel.</p>
+</div>
+<div class=modal-footer>
+<a href="#" class="btn btn-primary pull-left exit-modal__continue" data-skip-modal=true>Continue</a>
+<button type=button class="btn btn-default" data-dismiss=modal id=exit-modal-cancel>Cancel</button>
+</div>
+</div>
+</div>
+</div>
+<div id=zendesk-exit-modal class="modal fade" tabindex=-1 role=dialog>
+<div class=modal-dialog>
+<div class=modal-content>
+<div class=modal-body>
+<h3>Clover provider services uses a third-party website.</h3>
+<p>The form for submitting a provider service request is hosted on a non-Clover website. However, the requests are read and responded to by Clover. If you do not wish to submit a service request via a non-Clover website, please click Cancel.</p>
+</div>
+<div class=modal-footer>
+<a href="#" class="btn btn-primary pull-left zendesk-exit-modal__continue" data-skip-modal=true>Continue</a>
+<button type=button class="btn btn-default" data-dismiss=modal>Cancel</button>
+</div>
+</div>
+</div>
+</div>
+<div id=about-medicare-modal class="modal fade" tabindex=-1 role=dialog>
+<div class=modal-dialog>
+<div class=modal-content>
+<div class=modal-body>
+<button type=button class=close data-dismiss=modal aria-label=Close><span aria-hidden=true>&times;</span></button>
+<h4>Original Medicare</h4>
+<p>Traditional Medicare covers hospitals (Part A) and doctors (Part B), and you pay standard rates for services. You can go to any doctor, hospital or other provider that accepts Medicare patients anywhere in the country.</p>
+<p>You can add drug coverage (Part D) by enrolling in a private "stand-alone" drug plan for an additional premium. You can buy separate Medigap insurance to cover some or most of the out-of-pocket costs of hospitals (Part A) and doctors (Part B).</p>
+</div>
+</div>
+</div>
+</div>
+<div id=county-select-modal class="modal fade" tabindex=-1 role=dialog>
+<div class=modal-dialog>
+<div class=modal-content>
+<div class=modal-body>
+<button type=button class=close data-dismiss=modal aria-label=Close><span aria-hidden=true>&times;</span></button>
+<h1 class=h3>We found multiple counties for your ZIP code.</h1>
+<p>Select your county:</p>
+<p class="county-choice-placeholder js-county-choice-placeholder"></p>
+</div>
+<div class=modal-footer>
+<a href="#" class="btn btn-primary pull-left exit-modal__continue" data-skip-modal=true>Continue</a>
+</div>
+</div>
+</div>
+</div>
+<script type="text/plain" id=county-string class=hidden><%= county %> County</script>
+<div id=http-error-alert class=hidden>
+<div class="alert alert-danger alert-dismissible" role=alert>
+<button type=button class=close data-dismiss=alert aria-label=Close><span aria-hidden=true>&times;</span></button>
+<div class=alert__message>An error occurred. Please try again.</div>
+</div>
+</div>
+<script src="https://cdn.ravenjs.com/3.6.1/raven.min.js" integrity=sha384-rKlahPWcPWms7ChtWI3cD1GNFfV0mrMOXc2ZE9FO52lTge4iQDVvcatyJISSLkkX crossorigin=anonymous></script>
+<script>Raven.config('https://1d6746aa147d4d87aaa69d8022e7263e@www.cloverhealth.com/sentry-proxy/14', {
+    release: '70fbb6595f9a1409dab48b281e9dc5122800c7e2'
+  }).install()</script>
+<script type="text/javascript" src="../assets/bundles/app_js.8d9ca37bda03bc3e27dd.js"></script>
+<script>
+(function() {
+  var locale = 'en';
+  var code = '2b8966d8-c8fc-4150-9e41-29ac3f612dcf';
+  if (code) {
+    var path = window.location.pathname.split('/');
+    if (path[path.length - 1] === 'provider-chat') {
+      code = 'f5fb0c31-bc72-4c92-ba45-fdd9a8515d0c';
+    } else if (path[1] === 'es') {
+      locale = 'es';
+      code = '6ec8f1e8-df11-4101-aba5-533d7c69bc53';
+    }
+    var se = document.createElement('script'); se.type = 'text/javascript'; se.async = true;
+    se.src = '//storage.googleapis.com/code.snapengage.com/js/'+code+'.js';
+    var done = false;
+    se.onload = se.onreadystatechange = function() {
+      if (!done&&(!this.readyState||this.readyState==='loaded'||this.readyState==='complete')) {
+        done = true;
+
+      }
+    };
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(se, s);
+  }
+})();
+</script>
+</body>
+</html>
