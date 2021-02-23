@@ -1299,55 +1299,34 @@ a.navitem {
     background: url(../../uploads/Public/Images/Designs/MHP/MHP-Nav-Physician-Hover.png) center top no-repeat
 }
 
-#navitem1:hover {
-    background: url(../../uploads/Public/Images/Designs/MHP/MHP-Nav-Physician-Hover.png) center top no-repeat;
-    text-decoration: underline
-}
 
 #navitem2:link {
     background: url(../../uploads/Public/Images/Designs/MHP/MHP-Nav-MemberInformation-Static.png) center top no-repeat
 }
 
-#navitem2:hover {
-    background: url(../../uploads/Public/Images/Designs/MHP/MHP-Nav-MemberInformation-hover.png) center top no-repeat;
-    text-decoration: underline
-}
 
 #navitem3:link {
     background: url(../../uploads/Public/Images/Designs/MHP/MHP-Nav-MemberMaterials-Static.png) center top no-repeat
 }
 
-#navitem3:hover {
-    background: url(../../uploads/Public/Images/Designs/MHP/MHP-Nav-MemberMaterials-hover.png) center top no-repeat;
-    text-decoration: underline
-}
 
 #navitem4:link {
     background: url(../../uploads/Public/Images/Designs/MHP/MHP-Nav-Quality-Static.png) center top no-repeat
 }
 
-#navitem4:hover {
-    background: url(../../uploads/Public/Images/Designs/MHP/MHP-Nav-Quality-hover.png) center top no-repeat;
-    text-decoration: underline
-}
+
 
 #navitem5:link {
     background: url(../../uploads/Public/Images/Designs/MHP/MHP-Nav-HealthWellness-Static.png) center top no-repeat
 }
 
-#navitem5:hover {
-    background: url(../../uploads/Public/Images/Designs/MHP/MHP-Nav-HealthWellness-hover.png) center top no-repeat;
-    text-decoration: underline
-}
+
 
 #navitem6:link {
     background: url(../../uploads/Public/Images/Designs/MHP/MHP-Nav-Pharmacy-Static.png) center top no-repeat
 }
 
-#navitem6:hover {
-    background: url(../../uploads/Public/Images/Designs/MHP/MHP-Nav-Pharmacy-hover.png) center top no-repeat;
-    text-decoration: underline
-}
+
 
 .site-banner .inner-container {
     width: 100%;
