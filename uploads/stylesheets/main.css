@@ -1250,10 +1250,13 @@ ul.mobile-menu li.top-nav-mobile a {
     float: left;
     text-align: center;
     display: block;
-    width: 196px;
-    height: 175px
+    width: 152px;
+    margin-left: 25px;
+    height: 175px;
 }
-
+path, polyline {
+    fill: #fff;
+}
 .main-navigation-blue-bar {
     width: 100%;
     background-color: #8bc5ea;
@@ -1300,14 +1303,17 @@ a.navitem {
 }
 
 
+
 #navitem2:link {
     background: url(../../uploads/Public/Images/Designs/MHP/MHP-Nav-MemberInformation-Static.png) center top no-repeat
 }
 
 
+
 #navitem3:link {
     background: url(../../uploads/Public/Images/Designs/MHP/MHP-Nav-MemberMaterials-Static.png) center top no-repeat
 }
+
 
 
 #navitem4:link {
@@ -3793,7 +3799,7 @@ nav.top ul {
 nav.top ul > li {
     position: relative;
     float: left;
-    padding-left: 30px
+    padding-left: 7px;
 }
 
 nav.top ul > li:hover {
@@ -3816,7 +3822,8 @@ nav.top ul li a {
     display: block;
     font-weight: normal;
     padding: 24px 16px 10px 16px;
-    text-decoration: none
+    text-decoration: none;
+    color:#fff;
 }
 
 nav.top ul li a:hover {

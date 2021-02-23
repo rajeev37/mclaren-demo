@@ -30,7 +30,10 @@ audio:not([controls]) {
 a {
     background-color: transparent
 }
-
+.btn.btn-lg.btn-block.btn-primary {
+    max-width: 400px;
+    margin: 0 auto;
+}
 a:active,a:hover {
     outline: 0
 }
@@ -280,8 +283,16 @@ a {
 }
 
 a:focus,a:hover {
-    color: #094471;
-    text-decoration: underline
+    /* color: #094471;
+    text-decoration: underline */
+}
+.btn.btn-primary, .growth-plan-cta__enroll  {
+    border: 0;
+    font-weight: 500;
+}
+.fa.fa-info-circle {
+    color: #0066a4;
+    background: #fff;
 }
 
 a:focus {
@@ -2297,20 +2308,17 @@ a.btn.disabled,fieldset[disabled] a.btn {
 
 .btn-primary.focus,.btn-primary:focus {
     color: #fff;
-    background-color: #083f37;
-    border-color: #000
+ 
 }
 
 .btn-primary.active,.btn-primary:active,.btn-primary:hover,.comparisons.comparisons-clover .block-clover .comparison__action a:hover,.open>.dropdown-toggle.btn-primary {
     color: #fff;
-    background-color: #083f37;
-    border-color: #04201b
+    
 }
 
 .btn-primary.active.focus,.btn-primary.active:focus,.btn-primary.active:hover,.btn-primary:active.focus,.btn-primary:active:focus,.btn-primary:active:hover,.open>.dropdown-toggle.btn-primary.focus,.open>.dropdown-toggle.btn-primary:focus,.open>.dropdown-toggle.btn-primary:hover {
     color: #fff;
-    background-color: #04201b;
-    border-color: #000
+    
 }
 
 .btn-primary.active,.btn-primary:active,.open>.dropdown-toggle.btn-primary {
@@ -6433,11 +6441,11 @@ a.bg-purple:hover {
 }
 
 .choice__input:checked~.choice__button {
-    border-color: #269080
+    border-color: #2eb7ec
 }
 
 .choice__input:checked~.choice__button:before {
-    background-color: #269080
+    background-color: #2eb7ec
 }
 
 .choice__input--radio~.choice__button {
@@ -6468,7 +6476,7 @@ a.bg-purple:hover {
 }
 
 .choice__input--checkbox:checked~.choice__button {
-    background-color: #269080
+    background-color: #2eb7ec
 }
 
 .choice__input--checkbox:checked~.choice__button:before {
@@ -7903,7 +7911,7 @@ body.cke_editable .underlined:after {
     padding: 32px;
     border-radius: 5px;
     max-width: 700px;
-    margin: 32px auto 0px;
+    margin: 0px auto 0px;
 }
 
 .enrollment__back-link {
@@ -10883,7 +10891,7 @@ body.form-wizard .hide-container {
 }
 
 .growth-member-quote__quote-box--green:before {
-    color: #269080
+    color: #2eb7ec
 }
 
 .growth-member-quote__quote-box--pink {
@@ -11189,7 +11197,7 @@ body.form-wizard .hide-container {
 }
 
 .growth-value-card__card-link:hover {
-    border-color: #269080
+    border-color: #2eb7ec
 }
 
 .growth-value-card__card-link:active {
@@ -13135,7 +13143,7 @@ table tbody .plan-search-results__plan-benefits-link td {
 }
 
 .provider-results-card:hover {
-    border: 1px solid #269080
+    border: 1px solid #2eb7ec
 }
 
 .provider-results-card p {
@@ -14710,11 +14718,11 @@ table tbody .plan-search-results__plan-benefits-link td {
 }
 
 .link:focus,.link:hover,a:focus,a:hover {
-    color: #117cd0
+    /* color: #117cd0 */
 }
 
 .link:active,a:active {
-    color: #0d60a0
+    /* color: #0d60a0 */
 }
 
 .color-block {
@@ -16461,9 +16469,8 @@ table tbody .plan-search-results__plan-benefits-link td {
 }
 
 .growth-plan-cta__enroll.focus,.growth-plan-cta__enroll:focus,.growth-plan-cta__enroll:hover {
-    color: #333;
+    /* color: #fff; */
     text-decoration: none;
-    background-color: #2eb7ec;
 }
 
 .growth-plan-cta__enroll.active,.growth-plan-cta__enroll:active {
@@ -16484,20 +16491,20 @@ a.growth-plan-cta__enroll.disabled,fieldset[disabled] a.growth-plan-cta__enroll 
 }
 
 .growth-plan-cta__enroll.focus,.growth-plan-cta__enroll:focus {
-    color: #fff;
-    background-color: #083f37;
+    /* color: #fff;
+    background-color: #083f37; */
     border-color: #000
 }
 
 .growth-plan-cta__enroll.active,.growth-plan-cta__enroll:active,.growth-plan-cta__enroll:hover,.open>.dropdown-toggle.growth-plan-cta__enroll {
-    color: #fff;
-    background-color: #083f37;
+    /* color: #fff;
+    background-color: #083f37; */
     border-color: #04201b
 }
 
 .growth-plan-cta__enroll.active.focus,.growth-plan-cta__enroll.active:focus,.growth-plan-cta__enroll.active:hover,.growth-plan-cta__enroll:active.focus,.growth-plan-cta__enroll:active:focus,.growth-plan-cta__enroll:active:hover,.open>.dropdown-toggle.growth-plan-cta__enroll.focus,.open>.dropdown-toggle.growth-plan-cta__enroll:focus,.open>.dropdown-toggle.growth-plan-cta__enroll:hover {
-    color: #fff;
-    background-color: #04201b;
+    /* color: #fff;
+    background-color: #04201b; */
     border-color: #000
 }
 
